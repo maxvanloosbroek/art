@@ -1,0 +1,44 @@
+modal-audio {
+    audio-track{
+        .controls{
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .info{
+            height: auto!important;
+            text-align: center;
+        }
+        audio-track-progress-bar{
+            padding-top: 10px;
+        }
+        /* Special styling for WebKit/Blink */
+        input[type=range]::-webkit-slider-thumb {
+            box-shadow: none;
+            background-color: color($colors, danger);
+        }
+        
+        /* All the same stuff for Firefox */
+        input[type=range]::-moz-range-thumb {
+            box-shadow: none;
+            background-color: color($colors, danger);
+        }
+        
+        /* All the same stuff for IE */
+        input[type=range]::-ms-thumb {
+            box-shadow: none;
+            background-color: color($colors, danger);
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            height: 1px;
+          }
+          
+          input[type=range]::-moz-range-track {
+            height: 1px;
+          }
+          
+          input[type=range]::-ms-track {
+            height: 1px;
+          }
+    }
+}

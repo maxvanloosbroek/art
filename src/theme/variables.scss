@@ -22,7 +22,8 @@ $app-direction: ltr;
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
-
+$font-family-base: 'Yanone Kaffeesatz';
+$headings-font-weight: 200;
 
 
 // Named Color Variables
@@ -34,11 +35,16 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
+  primary:    rgb(140,130,173),
+  secondary:  rgb(200,111,70),
+  danger:     rgb(94,175,133),
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  grey: rgb(180,182,170),
+  blue: rgb(132,157,175),
+  purple: rgb(140,130,173),
+  green: rgb(207,240,200),
+  terracotta: rgb(200,111,70),
 );
 
 

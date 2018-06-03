@@ -1,5 +1,5 @@
-import { Component, Provider, ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { Component, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
 import { AudioProvider } from 'ionic-audio';
 import { ITrackConstraint } from 'ionic-audio';
 
@@ -14,14 +14,14 @@ import { ITrackConstraint } from 'ionic-audio';
   selector: 'modal-audio',
   templateUrl: 'audio.html',
 })
-export class AudioModal {
+export class AudioModal implements OnDestroy{
   myTracks: ITrackConstraint[];
   playlist: ITrackConstraint[] = [];
 
   currentIndex: number = -1;
   currentTrack: ITrackConstraint;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private _audioProvider: AudioProvider, private platform: Platform, private _cdRef: ChangeDetectorRef) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private _audioProvider: AudioProvider, private _cdRef: ChangeDetectorRef) {
     // plugin won't preload data by default, unless preload property is defined within json object - defaults to 'none'
     this.myTracks = [{
       src: 'assets/audio/sample.mp3',
@@ -33,6 +33,12 @@ export class AudioModal {
     const name = this.navParams.get('name');
     const track = this.myTracks.findIndex(track => track.title.toLowerCase().indexOf(name) > -1);
     this.play(this.myTracks[track], track);
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this._audioProvider.stop();
   }
 
   add(track: ITrackConstraint) {

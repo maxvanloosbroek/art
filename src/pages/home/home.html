@@ -7,6 +7,26 @@
 
 
 <ion-content padding>
-  <h1 text-center>Art</h1>
-  <button ion-button icon-only clear (click)="audioPlayer('sample')"><ion-icon name="ios-play-outline"></ion-icon></button>
+  <h1 text-center margin-top>Leer zien en begrijpen bij ART·SEE</h1>
+  <section margin-top class="instructions">
+    <h2 text-center>Hoe werkt het?</h2>
+    <ol>
+      <li>
+        Door een interesse te kiezen zie je werken die linken aan dat onderwerp
+      </li>
+      <li>
+        Loop door de 3 gangen en kies waarover je wat wilt leren
+      </li>
+      <li>
+        Volg de tour door het museum
+      </li>
+      <li>
+        Deel je ervaring met anderen, plof lekker neer en geniet nog even na.
+      </li>
+    </ol>
+  </section>
+  <section class="actions" text-center>
+    <button ion-button (click)="start()">Naar stap 1</button>
+  </section>
+  <!-- <button ion-button icon-only clear (click)="audioPlayer('sample')"><ion-icon name="ios-play-outline"></ion-icon></button> -->
 </ion-content>

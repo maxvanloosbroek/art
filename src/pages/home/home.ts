@@ -1,6 +1,7 @@
-import { Component, Provider } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform, ModalController, Modal } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController, NavParams, ModalController, Modal } from 'ionic-angular';
 import { AudioModal } from '../../modals/audio/audio';
+import { SelectInterestPage } from '../select-interest/select-interest';
 
 /**
  * Generated class for the HomePage page.
@@ -28,6 +29,10 @@ export class HomePage {
       showBackdrop: true
     });
     this.modal.present();
+  }
+
+  start(){
+    this.navCtrl.push(SelectInterestPage);
   }
 
 }

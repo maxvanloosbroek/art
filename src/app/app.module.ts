@@ -10,12 +10,16 @@ import { IonicAudioModule, defaultAudioProviderFactory } from 'ionic-audio';
 import { AudioModal } from '../modals/audio/audio';
 import { SelectInterestPage } from '../pages/select-interest/select-interest';
 import { DataProvider } from '../providers/data/data';
+import { LearningTopicsPage } from '../pages/learning-topics/learning-topics';
+import { ConfirmPage } from '../pages/confirm/confirm';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     SelectInterestPage,
+    LearningTopicsPage,
+    ConfirmPage,
     AudioModal
   ],
   imports: [
@@ -27,6 +31,8 @@ import { DataProvider } from '../providers/data/data';
   entryComponents: [
     MyApp,
     SelectInterestPage,
+    ConfirmPage,
+    LearningTopicsPage,
     HomePage,
     AudioModal
   ],

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
+import { LearningTopicsPage } from '../learning-topics/learning-topics';
 
 /**
  * Generated class for the SelectInterestPage page.
@@ -15,13 +16,24 @@ import { DataProvider } from '../../providers/data/data';
 })
 export class SelectInterestPage {
   interests: any[];
+  currentInterest: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public data: DataProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public data: DataProvider,private cd: ChangeDetectorRef) {
     this.interests = this.data.interests;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectInterestPage');
+  }
+
+  setInterest(interest: string) {
+    this.currentInterest = interest;
+    localStorage.setItem('interest', interest);
+    this.cd.detectChanges();
+  }
+
+  goToLearningTopics(){
+    this.navCtrl.push(LearningTopicsPage);
   }
 
 }

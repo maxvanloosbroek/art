@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 /*
@@ -41,7 +40,7 @@ export class DataProvider {
       name: 'geschiedenis',
       enabled: false
     },{
-      name: 'eten en drinken',
+      name: 'eten & drinken',
       enabled: false
     },{
       name: 'architectuur',
@@ -61,7 +60,7 @@ export class DataProvider {
     }
   ]
 
-  constructor(public http: HttpClient) {
+  constructor() {
     console.log('Hello DataProvider Provider');
   }
 

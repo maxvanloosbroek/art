@@ -1,9 +1,17 @@
 <ion-content padding>
+  <section text-center>
+      <h1>Kies een interesse</h1>
+  </section>
   <ion-grid>
     <ion-row>
       <ion-col col-4 *ngFor="let interest of interests">
-        {{interest.name}}
+        <button ion-button (click)="setInterest(interest.name)" [class.active]="currentInterest === interest.name">
+            {{interest.name}}
+        </button>
       </ion-col>
     </ion-row>
   </ion-grid>
+  <section class="actions" text-center>
+      <button ion-button (click)="goToLearningTopics()" [disabled]="!currentInterest">Naar stap 1</button>
+  </section>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Interest, LearningTopic } from '../../app/interfaces';
 
 /*
   Generated class for the DataProvider provider.
@@ -8,7 +9,7 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class DataProvider {
-  interests: {name: string, enabled: boolean}[] = [
+  interests: Interest[] = [
     {
       name: 'sport',
       enabled: false
@@ -48,7 +49,7 @@ export class DataProvider {
     },
   ]
 
-  learningTopics: {name: string}[] = [
+  learningTopics: LearningTopic[] = [
     {
       name: "kunstgeschiedenis",
     },

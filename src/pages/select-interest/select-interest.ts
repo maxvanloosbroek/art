@@ -2,6 +2,7 @@ import { Component, ChangeDetectorRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
 import { LearningTopicsPage } from '../learning-topics/learning-topics';
+import { Interest } from '../../app/interfaces';
 
 /**
  * Generated class for the SelectInterestPage page.
@@ -15,7 +16,7 @@ import { LearningTopicsPage } from '../learning-topics/learning-topics';
   templateUrl: 'select-interest.html',
 })
 export class SelectInterestPage {
-  interests: any[];
+  interests: Interest[];
   currentInterest: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public data: DataProvider,private cd: ChangeDetectorRef) {

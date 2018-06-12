@@ -2,10 +2,15 @@
     <section text-center>
         <h1>Waarover wil je vandaag wat leren?</h1>
     </section>
-    <section>
-        <button *ngFor="let topic of topics" ion-button (click)="selectLearningTopic(topic.name)" [class.active]="currentTopic === topic.name">{{topic.name}}</button>
-    </section>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-4 *ngFor="let topic of topics" text-center>
+                <art-button-round [icon]="topic.name" (click)="selectLearningTopic(topic.name)" [class.active]="currentTopic === topic.name"></art-button-round>
+                <p class="button-subtext" [class.active]="currentTopic === topic.name">{{topic.name}}</p>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
     <section class="actions" text-center>
-        <button ion-button (click)="goToConfirmPage()" [disabled]="!currentTopic">Naar stap 1</button>
+        <art-button-rectangle [text]="'Verder'" (click)="goToConfirmPage()" [class.disabled]="!currentTopic"></art-button-rectangle>
     </section>
   </ion-content>

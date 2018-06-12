@@ -38,7 +38,7 @@ export class DataProvider {
       name: 'uiterlijk',
       enabled: false
     },{
-      name: 'geschiedenis',
+      name: 'wetenschap',
       enabled: false
     },{
       name: 'eten & drinken',

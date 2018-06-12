@@ -1,5 +1,11 @@
-<p>
-  home works!
-</p>
-{{ (tourStarts$ | async)?.name }}
-{{ (tourStarts$ | async)?.time | date:'fullDate' }}
+<div class="container">
+  <p>
+    home works!<br>
+    {{ (tourStarts$ | async)?.name }}<br>
+    {{ (tourStarts$ | async)?.time | date:'fullDate' }}<br>
+    {{ (slide$ | async)?.file }}<br>
+  </p>
+  <div class="artwork" [style.background-image]="image$ | async">
+  </div>
+</div>
+

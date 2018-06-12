@@ -14,6 +14,11 @@
 
 
 <ion-content padding>
-  <ion-slides>
+  <ion-slides *ngIf="tour && tour.slides" (ionSlideDidChange)="onSlideChanged($event)">
+    <ion-slide *ngFor="let slide of tour.slides; let i = index">
+      <h2>{{i}}</h2>
+      <div class="artwork" [style.background-image]="getImage(slide.file)">
+      </div>
+    </ion-slide>
   </ion-slides>
 </ion-content>

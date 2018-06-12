@@ -1,18 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { AngularFirestore, DocumentChangeAction } from 'angularfire2/firestore';
 
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   tourStarts$: Observable<{name: string, time: any}>;
+  slide$: Observable<{file: string, time: any}>;
+  image$: Observable<string>;
 
   constructor(
-    private db: AngularFirestore
+    private db: AngularFirestore,
+    private cd: ChangeDetectorRef
   ) {
     this.tourStarts$ = db.collection('tourStart')
       .valueChanges()
@@ -26,10 +30,17 @@ export class HomeComponent implements OnInit {
         }
         return data[0];
       });
-      db.collection('tourStart').valueChanges().subscribe((data) => console.log(data));
+      this.slide$ = db.collection('activeSlide', collection => collection.orderBy('time', 'desc').limit(1))
+        .valueChanges()
+        .filter(slides => slides !== undefined)
+        .map(slides => slides[0] as {file: string; time: any});
+      this.image$ = this.slide$.map( slide => `url('assets/art/${slide.file}')`);
   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy(): void {
   }
 
 }

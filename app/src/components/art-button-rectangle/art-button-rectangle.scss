@@ -1,0 +1,11 @@
+art-button-rectangle {
+    button{
+        position: relative;
+        font-family: 'Lato';
+        color: white;
+        font-size: 20px;
+        font-weight: normal;
+        padding: 10px 18px;
+        background: color($colors, danger);
+    }
+}

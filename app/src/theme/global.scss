@@ -20,3 +20,26 @@
         visibility: visible!important;
     }
 }
+
+.ion-page .content {
+    .scroll-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 30px 16px !important;
+    }
+    &:after{
+        position: absolute;
+        display: block;
+        content: '';
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-image: url("../assets/imgs/papier.jpg");
+        background-size: cover;
+        background-position: center center;
+        opacity: 1;
+        mix-blend-mode: luminosity;
+    }
+}

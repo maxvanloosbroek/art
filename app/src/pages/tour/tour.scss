@@ -1,3 +1,14 @@
 page-tour {
-
+    .artwork{
+        width: 100%;
+        flex: 1 0 100%;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    .slide-zoom{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
 }

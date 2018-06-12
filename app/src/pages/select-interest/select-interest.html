@@ -4,14 +4,13 @@
   </section>
   <ion-grid>
     <ion-row>
-      <ion-col col-4 *ngFor="let interest of interests">
-        <button ion-button (click)="setInterest(interest.name)" [class.active]="currentInterest === interest.name">
-            {{interest.name}}
-        </button>
+      <ion-col col-4 *ngFor="let interest of interests" text-center>
+        <art-button-round [icon]="interest.name" (click)="setInterest(interest.name)" [class.active]="currentInterest === interest.name"></art-button-round>
+        <p class="button-subtext" [class.active]="currentInterest === interest.name">{{interest.name}}</p>
       </ion-col>
     </ion-row>
   </ion-grid>
   <section class="actions" text-center>
-      <button ion-button (click)="goToLearningTopics()" [disabled]="!currentInterest">Naar stap 1</button>
+      <art-button-rectangle [text]="'Verder'" (click)="goToLearningTopics()" [class.disabled]="!currentInterest"></art-button-rectangle>
   </section>
 </ion-content>

@@ -5,6 +5,7 @@ import { HomePage } from '../home/home';
 import { AngularFirestore, DocumentChangeAction } from 'angularfire2/firestore';
 
 import { Observable } from 'rxjs/Observable';
+import { TourPage } from '../tour/tour';
 
 /**
  * Generated class for the ConfirmPage page.
@@ -48,7 +49,12 @@ export class ConfirmPage {
       name,
       time: new Date()
     })
-    .then(res => console.log(res))
+    .then(res => {
+      console.log(res);
+      this.navCtrl.push(TourPage, {
+        tour: name
+      });
+    })
     .catch(err => console.log(err));
   }
 

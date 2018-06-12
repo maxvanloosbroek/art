@@ -1,13 +1,14 @@
 export interface TourSlide {
     title: string;
-    image: string;
-    audio: string;
-    music?: string;
+    artist: string;
+    zaal: string;
+    muziek?: string;
     description: string;
+    file: string
 }
 
 export interface Tour {
-    title: string;
+    name: string;
     slides: TourSlide[];
 }
 

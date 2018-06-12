@@ -10,6 +10,15 @@ ion-app.ios, ion-app.md {
 }
 
 h1,h2,h3,h4,h5,button{
-    font-family: 'Yanone Kaffeesatz';
+    font-family: 'Lato';
     font-weight: 300;
+}
+
+.button-subtext{
+    margin: 0;
+    margin-top: 6px;
+    font-size: 12px;
+    &.active{
+        font-weight: normal;
+    }
 }

@@ -16,6 +16,7 @@ import { TourPage } from '../pages/tour/tour';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { ComponentsModule } from '../components/components.module';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAh-txccyTcMD_Q2B2rVDGs-e3qPCXKW4I",
@@ -37,6 +38,7 @@ const firebaseConfig = {
     AudioModal
   ],
   imports: [
+    ComponentsModule,
     IonicAudioModule.forRoot(defaultAudioProviderFactory), 
     BrowserModule,
     IonicModule.forRoot(MyApp),

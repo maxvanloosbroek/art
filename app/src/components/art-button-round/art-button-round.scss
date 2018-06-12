@@ -1,0 +1,22 @@
+art-button-round {
+    &.active{
+        button{
+            background: saturate(color($colors, secondary), 25);
+        }
+    }
+    button{
+        position: relative;
+        font-family: 'Lato';
+        color: white;
+        font-size: 17px;
+        font-weight: normal;
+        width: 60px;
+        height: 60px;
+        padding: 10px 10px;
+        background: color($colors, secondary);
+        border-radius: 200px;
+        .line{
+            border-radius: 200px;
+        }
+    }
+}

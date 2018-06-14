@@ -2,14 +2,8 @@
     <div class="image-container">
         <img [src]="img" zoom-pan [img]="img">
     </div>
-    <button class="button button--close" ion-button mode="md" color="light" (click)="close()">
-      Close
-    </button>
-    <button class="button button--zoom" ion-button mode="md" color="light" (click)="zoomIn()">
-      +
-    </button>
-    <button class="button button--zoom-out" ion-button mode="md" color="light" (click)="zoomOut()">
-      -
-    </button>
+      <art-button-round class="button button--close small" [text]="'x'" (click)="close()"></art-button-round>
+      <art-button-round class="button button--zoom small" [text]="'+'" (click)="zoomIn()"></art-button-round>
+      <art-button-round class="button button--zoom-out small" [text]="'-'" (click)="zoomOut()"></art-button-round>
 </ion-content>
 

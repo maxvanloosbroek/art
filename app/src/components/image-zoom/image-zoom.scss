@@ -10,8 +10,20 @@ pg-image-zoom{
         flex-direction: column;
         justify-content: center;
         img{
+            margin-top: 60px;
             flex-grow: 0;
             width: auto;
+        }
+        art-button-round.small button {
+            width: 30px;
+            height: 30px;
+            padding: 6px 6px;
+            .line{
+                top: 0.5px;
+                left: 1px;
+                right: -1px;
+                bottom: -0.5px;
+            }
         }
 
         .button{
@@ -24,11 +36,9 @@ pg-image-zoom{
             }
             &--zoom{
                 right: 40px + 36px;
-                width: 36px;
             }
             &--zoom-out{
                 right: 20px;
-                width: 36px;
             }
         }
     }

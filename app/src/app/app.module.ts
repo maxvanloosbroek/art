@@ -60,7 +60,8 @@ const firebaseConfig = {
     LearningTopicsPage,
     TourPage,
     HomePage,
-    AudioModal
+    AudioModal,
+    ThanksPage,
   ],
   providers: [
     StatusBar,

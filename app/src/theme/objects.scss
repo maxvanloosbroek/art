@@ -12,3 +12,13 @@
     border: 1px solid black;
     opacity: 0.4;
 }
+
+.custom-back-button{
+    position: absolute;
+    top: 16px;
+    left: 0;
+    margin-left: 12px;
+    svg{
+        width: 25px;
+    }
+}

@@ -21,8 +21,19 @@
     }
 }
 
+.toolbar-background{
+    display: none !important;
+}
+
+.toolbar-content{
+    h1{
+        margin-left:  30px;
+        margin-right:  30px;
+    }
+}
+
 .ion-page .content {
-    background-color: rgb(189, 247, 228);
+    background-color: rgb(214, 255, 241);
     .scroll-content{
         display: flex;
         flex-direction: column;
@@ -43,4 +54,8 @@
         opacity: 0.5;
         mix-blend-mode: luminosity;
     }
+}
+
+ion-header::after {
+    display: none;
 }

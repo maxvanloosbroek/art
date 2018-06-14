@@ -2,13 +2,29 @@ page-tour {
     .artwork{
         width: 100%;
         flex: 1 0 100%;
+        min-height: 200px;
         background-size: contain;
-        background-position: center center;
+        background-position: top left;
         background-repeat: no-repeat;
     }
     .slide-zoom{
-        height: 100%;
         display: flex;
         flex-direction: column;
+    }
+    .controls{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-start;
+    }
+    .button-subtext{
+        white-space: nowrap;
+        display: block;
+    }
+    .description{
+        font-size: 14px;
+        p{
+            margin: 5px 0px;
+        }
     }
 }

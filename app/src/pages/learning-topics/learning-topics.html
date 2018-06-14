@@ -1,7 +1,14 @@
-<ion-content padding>
-    <section text-center>
+<!-- <ion-header>
+
+    <ion-navbar hideBackButton="true" text-center>
+        <art-svg [type]="'back'" (click)="navCtrl.pop()" class="custom-back-button"></art-svg>
         <h1>Waarover wil je vandaag wat leren?</h1>
-    </section>
+    </ion-navbar>
+
+</ion-header> -->
+
+<ion-content padding>
+    <h1 text-center>Waarover wil je vandaag wat leren?</h1>
     <ion-grid>
         <ion-row>
             <ion-col col-4 *ngFor="let topic of topics" text-center>
@@ -11,6 +18,7 @@
         </ion-row>
     </ion-grid>
     <section class="actions" text-center>
+        <art-button-rectangle [text]="'Terug'" (click)="navCtrl.pop()" class="back"></art-button-rectangle>
         <art-button-rectangle [text]="'Verder'" (click)="goToConfirmPage()" [class.disabled]="!currentTopic"></art-button-rectangle>
     </section>
   </ion-content>

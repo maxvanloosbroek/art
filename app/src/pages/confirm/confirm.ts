@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { SelectInterestPage } from '../select-interest/select-interest';
 import { HomePage } from '../home/home';
 import { AngularFirestore, DocumentChangeAction } from 'angularfire2/firestore';
@@ -27,7 +27,8 @@ export class ConfirmPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private db: AngularFirestore
+    private db: AngularFirestore,
+    private loadingCtrl: LoadingController,
   ) {
     this.interest = localStorage.getItem('interest');
     this.learningTopic = localStorage.getItem('topic');
@@ -43,6 +44,11 @@ export class ConfirmPage {
   }
 
   startTour() {
+    const loading = this.loadingCtrl.create({
+      content:'Starting tour',
+    });
+    loading.present();
+    
     const dateTime = (new Date()).toDateString();
     const name = this.interest.toLowerCase() + '-' + this.learningTopic.toLowerCase();
     this.db.collection("tourStart").add({
@@ -51,6 +57,7 @@ export class ConfirmPage {
     })
     .then(res => {
       console.log(res);
+      loading.dismiss();
       this.navCtrl.push(TourPage, {
         tour: name
       });

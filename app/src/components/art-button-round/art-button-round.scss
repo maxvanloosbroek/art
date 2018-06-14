@@ -1,9 +1,6 @@
 art-button-round {
-    &.active{
-        button{
-            background: saturate(color($colors, secondary), 25);
-        }
-    }
+    width: 60px;
+    height: 60px;
     button{
         position: relative;
         font-family: 'Lato';
@@ -17,6 +14,33 @@ art-button-round {
         border-radius: 200px;
         .line{
             border-radius: 200px;
+        }
+    }
+    &.active{
+        button{
+            background: saturate(color($colors, secondary), 25);
+        }
+    }
+    &.small{
+        width: 40px;
+        height: 40px;
+        button{
+            width: 40px;
+            height: 40px;
+            padding: 6px 6px;
+            svg{
+                width: 20px;
+                height: 20px;
+
+            }
+        } 
+    }
+    &.transparent{
+        button{
+            background: transparent;
+        }
+        .line{
+            display: none;
         }
     }
 }

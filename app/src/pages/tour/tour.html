@@ -4,21 +4,50 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Tour</ion-title>
-  </ion-navbar>
-
-</ion-header>
 
 
 <ion-content padding>
-  <ion-slides *ngIf="tour && tour.slides" (ionSlideDidChange)="onSlideChanged($event)">
-    <ion-slide *ngFor="let slide of tour.slides; let i = index">
-      <h2>{{i}}</h2>
-      <div class="artwork" [style.background-image]="getImage(slide.file)">
-      </div>
-    </ion-slide>
-  </ion-slides>
+  <section class="slides">
+    <ion-slides *ngIf="tour && tour.slides" (ionSlideDidChange)="onSlideChanged($event)">
+      <ion-slide *ngFor="let slide of tour.slides; let i = index">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-9>
+                <div class="artwork" [style.background-image]="getImage(slide.file)">
+                </div>
+            </ion-col>
+            <ion-col col-3 class="controls">
+                <div padding-bottom text-center>
+                  <art-button-round [icon]="'info'" (click)="audioPlayer('sample')" class="small"></art-button-round>
+                  <span class="button-subtext">Info</span>
+                </div>
+
+                <div padding-bottom  text-center>
+                    <art-button-round [icon]="'muziek'" (click)="audioPlayer('sample')" class="small" *ngIf="slide.muziek"></art-button-round>
+                    <span *ngIf="slide.muziek"  class="button-subtext">Muziek</span>
+                </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-12 text-left class="description">
+                <p>{{slide.artist}} | {{slide.title}}</p>
+                <p>{{slide.zaal}}</p>
+                <p *ngIf="slide.material">{{slide.material}}</p>
+                <p *ngIf="slide.year">{{slide.year}}</p>
+                <p *ngIf="slide.subject">{{slide.subject}}</p>
+                <p *ngIf="slide.trivia">{{slide.trivia}}</p>
+                <p *ngIf="slide.description">{{slide.description}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+    </ion-slides>
+  </section>
+  <section class="actions" text-center>
+      <art-button-rectangle [text]="'Terug'" (click)="back()" class="back"></art-button-rectangle>
+      <art-button-rectangle [text]="'Verder'" (click)="forward()" *ngIf="!hideNext"></art-button-rectangle>
+      <art-button-rectangle [text]="'Klaar'" (click)="end()" *ngIf="hideNext"></art-button-rectangle>
+  </section>
 </ion-content>

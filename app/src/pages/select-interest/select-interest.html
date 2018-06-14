@@ -1,16 +1,24 @@
+<!-- <ion-header>
+
+    <ion-navbar hideBackButton="true" text-center>
+        <art-svg [type]="'back'" (click)="navCtrl.pop()" class="custom-back-button"></art-svg>
+        <h1>Kies een interesse</h1>
+    </ion-navbar>
+
+</ion-header> -->
+
 <ion-content padding>
-  <section text-center>
-      <h1>Kies een interesse</h1>
-  </section>
+  <h1 text-center>Kies een interesse</h1>
   <ion-grid>
     <ion-row>
-      <ion-col col-4 *ngFor="let interest of interests" text-center>
-        <art-button-round [icon]="interest.name" (click)="setInterest(interest.name)" [class.active]="currentInterest === interest.name"></art-button-round>
+      <ion-col col-4 *ngFor="let interest of interests" text-center [class.disabled]="fadeOut&&!interest.enabled">
+        <art-button-round [icon]="interest.name" (click)="setInterest(interest.name, interest.enabled)" [class.active]="currentInterest === interest.name"></art-button-round>
         <p class="button-subtext" [class.active]="currentInterest === interest.name">{{interest.name}}</p>
       </ion-col>
     </ion-row>
   </ion-grid>
   <section class="actions" text-center>
+      <art-button-rectangle [text]="'Terug'" (click)="navCtrl.pop()" class="back"></art-button-rectangle>
       <art-button-rectangle [text]="'Verder'" (click)="goToLearningTopics()" [class.disabled]="!currentInterest"></art-button-rectangle>
   </section>
 </ion-content>

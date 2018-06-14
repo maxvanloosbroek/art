@@ -1,5 +1,5 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
 import { LearningTopicsPage } from '../learning-topics/learning-topics';
 import { Interest } from '../../app/interfaces';
@@ -18,8 +18,9 @@ import { Interest } from '../../app/interfaces';
 export class SelectInterestPage {
   interests: Interest[];
   currentInterest: string;
+  fadeOut = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public data: DataProvider,private cd: ChangeDetectorRef) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public data: DataProvider,private cd: ChangeDetectorRef, private alertcontroller: AlertController) {
     this.interests = this.data.interests;
   }
 
@@ -27,10 +28,20 @@ export class SelectInterestPage {
     console.log('ionViewDidLoad SelectInterestPage');
   }
 
-  setInterest(interest: string) {
-    this.currentInterest = interest;
-    localStorage.setItem('interest', interest);
-    this.cd.detectChanges();
+  setInterest(interest: string, enabled: boolean) {
+    if (enabled) {
+      this.currentInterest = interest;
+      localStorage.setItem('interest', interest);
+      this.cd.detectChanges();
+    } else {
+      const alert = this.alertcontroller.create({
+        title: 'Sorry',
+        message: `Helaas is deze tourinteresse nog niet beschikbaar in deze conceptversie van Art&nbsp;|&nbsp;See.<br>U kunt nu alleen kiezen voor 'Rotterdam' of 'Muziek'.`,
+        buttons: ['Ok']
+      });
+      this.fadeOut = true;
+      alert.present();
+    }
   }
 
   goToLearningTopics(){

@@ -17,6 +17,7 @@ import { TourPage } from '../pages/tour/tour';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { ComponentsModule } from '../components/components.module';
+import { ThanksPage } from '../pages/thanks/thanks';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAh-txccyTcMD_Q2B2rVDGs-e3qPCXKW4I",
@@ -35,7 +36,8 @@ const firebaseConfig = {
     LearningTopicsPage,
     ConfirmPage,
     TourPage,
-    AudioModal
+    AudioModal,
+    ThanksPage
   ],
   imports: [
     ComponentsModule,

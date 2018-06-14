@@ -26,6 +26,11 @@
                     <art-button-round [icon]="'muziek'" (click)="audioPlayer('sample')" class="small" *ngIf="slide.muziek"></art-button-round>
                     <span *ngIf="slide.muziek"  class="button-subtext">Muziek</span>
                 </div>
+
+                <div padding-bottom  text-center>
+                  <art-button-round [icon]="'map'" (click)="viewMap('assets/imgs/Boijmans plattegrond.jpg', true)" class="small"></art-button-round>
+                  <span *ngIf="slide.muziek"  class="button-subtext">Kaart</span>
+                </div>
             </ion-col>
           </ion-row>
         </ion-grid>

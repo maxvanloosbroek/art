@@ -18,6 +18,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { ComponentsModule } from '../components/components.module';
 import { ThanksPage } from '../pages/thanks/thanks';
+import { ImageZoomComponent } from '../components/image-zoom/image-zoom';
+import { ZoomPanDirective } from '../components/zoom-pan';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAh-txccyTcMD_Q2B2rVDGs-e3qPCXKW4I",
@@ -37,7 +39,9 @@ const firebaseConfig = {
     ConfirmPage,
     TourPage,
     AudioModal,
-    ThanksPage
+    ThanksPage,
+    ImageZoomComponent,
+    ZoomPanDirective
   ],
   imports: [
     ComponentsModule,
@@ -49,6 +53,7 @@ const firebaseConfig = {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    ImageZoomComponent,
     MyApp,
     SelectInterestPage,
     ConfirmPage,

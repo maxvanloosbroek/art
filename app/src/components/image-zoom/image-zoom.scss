@@ -1,0 +1,36 @@
+pg-image-zoom{
+    height: 100%;
+    width: 100%;
+    .content{
+        background: transparent;
+    }
+    .scroll-content{
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        img{
+            flex-grow: 0;
+            width: auto;
+        }
+
+        .button{
+            // color: map-get($colors, dark);
+            // background: white;
+            position: absolute;
+            top: 20px;
+            &--close{
+                left: 20px;
+            }
+            &--zoom{
+                right: 40px + 36px;
+                width: 36px;
+            }
+            &--zoom-out{
+                right: 20px;
+                width: 36px;
+            }
+        }
+    }
+}
+

@@ -5,6 +5,7 @@ import { Tour } from '../../app/interfaces';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AudioModal } from '../../modals/audio/audio';
 import { ThanksPage } from '../thanks/thanks';
+import { ImageZoomComponent } from '../../components/image-zoom/image-zoom';
 
 /**
  * Generated class for the TourPage page.
@@ -98,6 +99,19 @@ export class TourPage implements OnInit{
 
   end(){
     this.navCtrl.push(ThanksPage);
+  }
+
+  viewMap(img: string, enabled: boolean) {
+    if (enabled) {
+      console.log('view map');
+      const modal = this.modalController.create(ImageZoomComponent, {img}, {
+        showBackdrop: true,
+        enableBackdropDismiss: false,
+        cssClass: 'modal-force-backdrop modal--image-zoom'
+      });
+  
+      modal.present();
+    }
   }
 
 }

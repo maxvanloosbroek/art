@@ -1,0 +1,15 @@
+<ion-content no-bounce>
+    <div class="image-container">
+        <img [src]="img" zoom-pan [img]="img">
+    </div>
+    <button class="button button--close" ion-button mode="md" color="light" (click)="close()">
+      Close
+    </button>
+    <button class="button button--zoom" ion-button mode="md" color="light" (click)="zoomIn()">
+      +
+    </button>
+    <button class="button button--zoom-out" ion-button mode="md" color="light" (click)="zoomOut()">
+      -
+    </button>
+</ion-content>
+

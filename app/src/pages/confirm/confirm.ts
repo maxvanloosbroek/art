@@ -22,8 +22,6 @@ import { TourPage } from '../tour/tour';
 export class ConfirmPage {
   interest: string;
   learningTopic: string;
-  tourStarts$: any;
-
 
   constructor(
     public navCtrl: NavController,
@@ -34,10 +32,6 @@ export class ConfirmPage {
     this.interest = localStorage.getItem('interest');
     this.learningTopic = localStorage.getItem('topic');
     console.log(this.interest,this.learningTopic)
-    this.tourStarts$ = db.collection("tourStart").valueChanges();
-    this.tourStarts$.subscribe((data) => {
-      console.log(data);
-    });
   }
 
   ionViewDidLoad() {
@@ -45,25 +39,10 @@ export class ConfirmPage {
   }
 
   startTour() {
-    const loading = this.loadingCtrl.create({
-      content:'Starting tour',
-    });
-    loading.present();
-    
-    const dateTime = (new Date()).toDateString();
     const name = this.interest.toLowerCase() + '-' + this.learningTopic.toLowerCase();
-    this.db.collection("tourStart").add({
-      name,
-      time: new Date()
-    })
-    .then(res => {
-      console.log(res);
-      loading.dismiss();
-      this.navCtrl.push(TourPage, {
-        tour: name
-      });
-    })
-    .catch(err => console.log(err));
+    this.navCtrl.push(TourPage, {
+      tour: name
+    });
   }
 
   restart() {

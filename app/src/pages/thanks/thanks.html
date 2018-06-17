@@ -13,6 +13,22 @@
   <p>
     Bedankt voor het doen van de tour. Je kunt nu in de volgende ruimte alles even laten bezinken, en gezellig met andere bezoekers je ervaringen delen!
   </p>
-  <art-button-rectangle [text]="'Begin opnieuw'" (click)="goToStart()"></art-button-rectangle>
+
+  <form margin-bottom *ngIf="!error && !success" class="contactForm">
+    <ion-item>
+      <ion-label>Naam</ion-label>
+      <ion-input type="text" [(ngModel)]="contactInfo.name" name="name"></ion-input>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>Email</ion-label>
+      <ion-input [(ngModel)]="contactInfo.email" name="email" email></ion-input>
+    </ion-item>
+    <art-button-rectangle tappable [text]="'Verstuur'" (click)="sendContactInfo()"></art-button-rectangle>
+  </form>
+
+  <p *ngIf="error">{{this.error}}</p>
+  <p *ngIf="success">Bedankt voor het versturen van je gegevens!</p>
+
+  <art-button-rectangle margin-top [text]="'Begin opnieuw'" (click)="goToStart()"></art-button-rectangle>
 
 </ion-content>

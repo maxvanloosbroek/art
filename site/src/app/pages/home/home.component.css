@@ -15,4 +15,8 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
+    transition: opacity 0.4s;
+}
+.fade{
+    opacity: 0;
 }

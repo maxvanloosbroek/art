@@ -1,11 +1,29 @@
 page-learning-topics {
+    ion-col{
+        &:last-child{
+            art-button-round{
+                button{
+                    background-image: url("../assets/imgs/orange-texture.jpg");
+                }
+            }
+        }
+        &:first-child{
+            art-button-round{
+                button{
+                    background-image: url("../assets/imgs/blue-texture.jpg");
+                }
+            }
+        }
+    }
     art-button-round{
         button{
-            background: color($colors, primary);
+            background-color: rgba(255,255,255,0.1);
+            background-image: url("../assets/imgs/green-texture.jpg");
+
         }
         &.active{
             button{
-                background: saturate(color($colors, primary), 25);
+                background-color: transparent;
             }
         }
     }

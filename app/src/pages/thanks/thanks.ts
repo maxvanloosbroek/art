@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 /**
  * Generated class for the ThanksPage page.
@@ -10,12 +11,16 @@ import { HomePage } from '../home/home';
  */
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'page-thanks',
   templateUrl: 'thanks.html',
 })
 export class ThanksPage {
+  public contactInfo = {name: '', email: ''};
+  public success: boolean;
+  public error: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,    private db: AngularFirestore, private loadingCtrl: LoadingController, private cd: ChangeDetectorRef) {
   }
 
   ionViewDidLoad() {
@@ -24,6 +29,27 @@ export class ThanksPage {
 
   goToStart() {
     this.navCtrl.setRoot(HomePage);
+  }
+
+  sendContactInfo() {
+    console.log('sending info');
+    const loading = this.loadingCtrl.create({
+      content:'Starting tour',
+    });
+    loading.present();
+    this.db.collection("contactInfo").add(this.contactInfo)
+    .then(res => {
+      console.log(res);
+      loading.dismiss();
+      this.success = true;
+      this.error = null;
+      this.cd.detectChanges();
+    })
+    .catch(() => {
+      this.success = false;
+      this.error = 'Oeps, er ging iets niet helemaal goed, probeer het nog eens';
+      this.cd.detectChanges();
+    });
   }
 
 }

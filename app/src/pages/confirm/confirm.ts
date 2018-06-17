@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { SelectInterestPage } from '../select-interest/select-interest';
 import { HomePage } from '../home/home';
@@ -15,6 +15,7 @@ import { TourPage } from '../tour/tour';
  */
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'page-confirm',
   templateUrl: 'confirm.html',
 })

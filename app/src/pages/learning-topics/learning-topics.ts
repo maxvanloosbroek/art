@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ConfirmPage } from '../confirm/confirm';
 import { DataProvider } from '../../providers/data/data';
@@ -12,6 +12,7 @@ import { LearningTopic } from '../../app/interfaces';
  */
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'page-learning-topics',
   templateUrl: 'learning-topics.html',
 })

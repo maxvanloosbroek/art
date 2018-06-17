@@ -16,6 +16,7 @@ import { ITrackConstraint } from 'ionic-audio';
 })
 export class AudioModal implements OnDestroy{
   myTracks: ITrackConstraint[];
+  track: ITrackConstraint;
   playlist: ITrackConstraint[] = [];
 
   currentIndex: number = -1;
@@ -30,9 +31,21 @@ export class AudioModal implements OnDestroy{
       art: 'assets/imgs/logo.png',
       preload: 'metadata' // tell the plugin to preload metadata such as duration for this track, set to 'none' to turn off
     }];
-    const name = this.navParams.get('name');
-    const track = this.myTracks.findIndex(track => track.title.toLowerCase().indexOf(name) > -1);
-    this.play(this.myTracks[track], track);
+    const file = this.navParams.get('file');
+    const title = this.navParams.get('title');
+    if (file) {
+      this.myTracks = [{
+        src: file,
+        artist: 'Tour',
+        title,
+        preload: 'metadata' // tell the plugin to preload metadata such as duration for this track, set to 'none' to turn off
+      }];
+      this.play(this.myTracks[0], 0);
+    } else {
+      const name = this.navParams.get('name');
+      const track = this.myTracks.findIndex(track => track.title.toLowerCase().indexOf(name) > -1);
+      this.play(this.myTracks[track], track);
+    }
   }
 
   ngOnDestroy(): void {
@@ -50,22 +63,22 @@ export class AudioModal implements OnDestroy{
       this.currentIndex = index;
   }
 
-  next() {
-    // if there is a next track on the list play it
-    if (this.playlist.length > 0 && this.currentIndex >= 0 && this.currentIndex < this.playlist.length - 1) {
-      let i = this.currentIndex + 1;
-      let track = this.playlist[i];
-      this.play(track, i);
-      this._cdRef.detectChanges();  // needed to ensure UI update
-    } else if (this.currentIndex == -1 && this.playlist.length > 0) {
-      // if no track is playing then start with the first track on the list
-      this.play(this.playlist[0], 0);
-    }
-  }
+  // next() {
+  //   // if there is a next track on the list play it
+  //   if (this.playlist.length > 0 && this.currentIndex >= 0 && this.currentIndex < this.playlist.length - 1) {
+  //     let i = this.currentIndex + 1;
+  //     let track = this.playlist[i];
+  //     this.play(track, i);
+  //     this._cdRef.detectChanges();  // needed to ensure UI update
+  //   } else if (this.currentIndex == -1 && this.playlist.length > 0) {
+  //     // if no track is playing then start with the first track on the list
+  //     this.play(this.playlist[0], 0);
+  //   }
+  // }
 
-  onTrackFinished(track: any) {
-    this.next();
-  }
+  // onTrackFinished(track: any) {
+  //   this.next();
+  // }
 
   clear() {
     this.playlist = [];

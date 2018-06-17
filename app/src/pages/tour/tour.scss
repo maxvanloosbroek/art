@@ -1,11 +1,12 @@
 page-tour {
+    .col{
+        text-align: left;
+    }
     .artwork{
-        width: 100%;
         flex: 1 0 100%;
-        min-height: 200px;
-        background-size: contain;
-        background-position: top left;
-        background-repeat: no-repeat;
+        max-height: 240px;
+        max-width: 100%;
+        box-shadow: 2px 0px 2px 1px rgba(0,0,0,0.15);
     }
     .slide-zoom{
         display: flex;
@@ -24,7 +25,21 @@ page-tour {
     .description{
         font-size: 14px;
         p{
-            margin: 5px 0px;
+            margin: 8px 0px;
+        }
+    }
+    h3{
+        text-transform: capitalize;
+    }
+
+    .info{
+        svg{
+            transform: scale(1.2);
+        }
+    }
+    .map{
+        svg{
+            transform: translateY(2px) scale(1.4);
         }
     }
 }

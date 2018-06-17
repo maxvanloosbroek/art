@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
 import { LearningTopicsPage } from '../learning-topics/learning-topics';
@@ -12,6 +12,7 @@ import { Interest } from '../../app/interfaces';
  */
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'page-select-interest',
   templateUrl: 'select-interest.html',
 })

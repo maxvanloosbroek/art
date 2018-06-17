@@ -6,7 +6,9 @@
 -->
 
 <ion-content padding>
-  <h1 text-center margin-top>Leer zien en begrijpen bij ART·SEE</h1>
+  <section>
+      <h1 text-center margin-top>Leer zien en begrijpen met</h1><h1 no-margin text-center class="logo">ART | SEE</h1>
+  </section>
   <section margin-top class="instructions">
     <h2 text-center>Hoe werkt het?</h2>
     <ol>
@@ -25,7 +27,7 @@
     </ol>
   </section>
   <section class="actions" text-center>
-    <art-button-rectangle (click)="start()" [text]="'Naar stap 1'"></art-button-rectangle>
+    <art-button-rectangle (click)="start()" [text]="'Naar stap 1'" class="next"></art-button-rectangle>
   </section>
-  <!-- <button ion-button icon-only clear (click)="audioPlayer('sample')"><ion-icon name="ios-play-outline"></ion-icon></button> -->
+  <!-- <button tappable ion-button icon-only clear (click)="audioPlayer('sample')"><ion-icon name="ios-play-outline"></ion-icon></button> -->
 </ion-content>

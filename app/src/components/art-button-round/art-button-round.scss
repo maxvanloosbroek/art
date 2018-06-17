@@ -1,7 +1,11 @@
 art-button-round {
     width: 60px;
     height: 60px;
+    button.activated{
+        transform:  translateY(2px);
+    }
     button{
+        box-shadow: 1px 0px 1px 1px rgba(0,0,0,0.3);
         position: relative;
         font-family: 'Lato';
         color: white;
@@ -10,15 +14,48 @@ art-button-round {
         width: 60px;
         height: 60px;
         padding: 10px 10px;
-        background: color($colors, secondary);
+        background-color: rgba(255, 136, 0, 0.4);
+        background-image: url("../assets/imgs/orange-texture.jpg");
+        background-blend-mode: overlay;
+        background-position: 100%;
+        background-size: 400px;
         border-radius: 200px;
+        art-svg{
+            opacity: 0.8;
+            svg{
+                *{
+                    fill: white;
+
+                }
+            }
+        }
         .line{
             border-radius: 200px;
         }
     }
     &.active{
         button{
-            background: saturate(color($colors, secondary), 25);
+            transform: scale(1.15);
+            background-color: rgba(255, 136, 0, 0.5);
+            box-shadow: 1px 0px 1px 1px rgba(0,0,0,0.5);
+        }
+    }
+    &.actualiteiten{
+        button{
+            background-color: transparent;
+            background-image: url("../assets/imgs/orange-texture.jpg");
+        }
+    }
+    &.jezelf{
+        button{
+            background-color: transparent;
+            background-image: url("../assets/imgs/green-texture.jpg");
+        }
+    }
+    &.kunstgeschiedenis{
+        button{
+            background-color: transparent;
+            background-image: url("../assets/imgs/blue-texture.jpg");
         }
     }
     &.small{
@@ -37,7 +74,7 @@ art-button-round {
     }
     &.transparent{
         button{
-            background: transparent;
+            background-color: transparent;
         }
         .line{
             display: none;

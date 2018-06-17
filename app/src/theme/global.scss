@@ -32,28 +32,39 @@
     }
 }
 
+
 .ion-page .content {
-    background-color: rgb(214, 255, 241);
+    background-image: url("../assets/imgs/pink-texture.jpg");
+    background-size: cover;
+    background-position: center center;
+    &.jezelf{
+        background-image: url("../assets/imgs/lightgreen-texture.jpg"); 
+    }
+    &.kunstgeschiedenis{
+        background-image: url("../assets/imgs/lightblue-texture.jpg"); 
+    }
     .scroll-content{
+
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         padding: 30px 16px !important;
+        padding-bottom: 60px!important;
     }
-    &:after{
-        position: absolute;
-        display: block;
-        content: '';
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        background-image: url("../assets/imgs/papier.jpg");
-        background-size: cover;
-        background-position: center center;
-        opacity: 0.5;
-        mix-blend-mode: luminosity;
-    }
+    // &:after{
+    //     position: absolute;
+    //     display: block;
+    //     content: '';
+    //     left: 0;
+    //     right: 0;
+    //     top: 0;
+    //     bottom: 0;
+    //     background-image: url("../assets/imgs/papier.jpg");
+    //     background-size: cover;
+    //     background-position: center center;
+    //     opacity: 0.5;
+    //     mix-blend-mode: luminosity;
+    // }
 }
 
 ion-header::after {

@@ -6,30 +6,29 @@
 -->
 
 
-<ion-content padding>
+<ion-content padding [ngClass]="learningTopic">
   <section class="slides">
     <ion-slides *ngIf="tour && tour.slides" (ionSlideDidChange)="onSlideChanged($event)">
       <ion-slide *ngFor="let slide of tour.slides; let i = index">
         <ion-grid>
           <ion-row>
             <ion-col col-9>
-                <div class="artwork" [style.background-image]="getImage(slide.file)">
-                </div>
+                <img class="artwork" [src]="getImage(slide.file)">
             </ion-col>
             <ion-col col-3 class="controls">
                 <div padding-bottom text-center>
-                  <art-button-round [icon]="'info'" (click)="audioPlayer('sample')" class="small"></art-button-round>
+                  <art-button-round [icon]="'info'" (click)="audioPlayer(i, slide.title)" class="small info" [ngClass]="learningTopic"></art-button-round>
                   <span class="button-subtext">Info</span>
                 </div>
 
                 <div padding-bottom  text-center>
-                    <art-button-round [icon]="'muziek'" (click)="audioPlayer('sample')" class="small" *ngIf="slide.muziek"></art-button-round>
+                    <art-button-round [icon]="'muziek'" (click)="audioPlayer(i, slide.muziek, true)" class="small music" *ngIf="slide.muziek" [ngClass]="learningTopic"></art-button-round>
                     <span *ngIf="slide.muziek"  class="button-subtext">Muziek</span>
                 </div>
 
                 <div padding-bottom  text-center>
-                  <art-button-round [icon]="'map'" (click)="viewMap('assets/imgs/Boijmans plattegrond.jpg', true)" class="small"></art-button-round>
-                  <span *ngIf="slide.muziek"  class="button-subtext">Kaart</span>
+                  <art-button-round [icon]="'map'" (click)="viewMap('assets/imgs/Boijmans plattegrond.jpg', true)" class="small map" [ngClass]="learningTopic"></art-button-round>
+                  <span class="button-subtext">Kaart</span>
                 </div>
             </ion-col>
           </ion-row>
@@ -37,8 +36,9 @@
         <ion-grid>
           <ion-row>
             <ion-col col-12 text-left class="description">
-                <p>{{slide.artist}} | {{slide.title}}</p>
-                <p>{{slide.zaal}}</p>
+                <h3>{{slide.zaal}}</h3>
+                <h6>{{slide.artist}} | {{slide.title}}</h6>
+
                 <p *ngIf="slide.material">{{slide.material}}</p>
                 <p *ngIf="slide.year">{{slide.year}}</p>
                 <p *ngIf="slide.subject">{{slide.subject}}</p>
@@ -52,7 +52,7 @@
   </section>
   <section class="actions" text-center>
       <art-button-rectangle [text]="'Terug'" (click)="back()" class="back"></art-button-rectangle>
-      <art-button-rectangle [text]="'Verder'" (click)="forward()" *ngIf="!hideNext"></art-button-rectangle>
-      <art-button-rectangle [text]="'Klaar'" (click)="end()" *ngIf="hideNext"></art-button-rectangle>
+      <art-button-rectangle [text]="'Verder'" (click)="forward()" *ngIf="!hideNext"  class="next"></art-button-rectangle>
+      <art-button-rectangle [text]="'Klaar'" (click)="end()" *ngIf="hideNext"  class="next"></art-button-rectangle>
   </section>
 </ion-content>

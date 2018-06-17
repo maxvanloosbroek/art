@@ -8,17 +8,18 @@
 </ion-header> -->
 
 <ion-content padding>
-    <h1 text-center>Waarover wil je vandaag wat leren?</h1>
+    <h1 text-center>Waarover wil je wat leren vandaag?</h1>
     <ion-grid>
         <ion-row>
             <ion-col col-4 *ngFor="let topic of topics" text-center>
                 <art-button-round [icon]="topic.name" (click)="selectLearningTopic(topic.name)" [class.active]="currentTopic === topic.name"></art-button-round>
-                <p class="button-subtext" [class.active]="currentTopic === topic.name">{{topic.name}}</p>
+                <p *ngIf="topic.name === 'kunstgeschiedenis'" class="button-subtext" [class.active]="currentTopic === topic.name">kunst&shy;geschiedenis</p>
+                <p *ngIf="topic.name !== 'kunstgeschiedenis'" class="button-subtext" [class.active]="currentTopic === topic.name">{{topic.name}}</p>
             </ion-col>
         </ion-row>
     </ion-grid>
     <section class="actions" text-center>
         <art-button-rectangle [text]="'Terug'" (click)="navCtrl.pop()" class="back"></art-button-rectangle>
-        <art-button-rectangle [text]="'Verder'" (click)="goToConfirmPage()" [class.disabled]="!currentTopic"></art-button-rectangle>
+        <art-button-rectangle [text]="'Verder'" (click)="goToConfirmPage()" [class.disabled]="!currentTopic" class="next"></art-button-rectangle>
     </section>
   </ion-content>

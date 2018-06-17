@@ -66,8 +66,8 @@ export class ZoomPanDirective {
                     transform =
                     'translate3d(0, 0, 0) ' +
                     'scale3d(2, 2, 1) ';
-                    scale = 3.5;
-                    last_scale = 3.5;
+                    scale = 3.8;
+                    last_scale = scale;
                     el.style.webkitTransform = transform;
                     transform = '';
                 } else if ( last_scale < 2) {

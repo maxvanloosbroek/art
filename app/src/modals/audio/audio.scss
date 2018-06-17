@@ -1,5 +1,6 @@
 modal-audio {
     audio-track{
+        margin-top: 25px;
         .controls{
             justify-content: center;
             flex-wrap: wrap;
@@ -14,7 +15,7 @@ modal-audio {
         /* Special styling for WebKit/Blink */
         input[type=range]::-webkit-slider-thumb {
             box-shadow: none;
-            background-color: color($colors, danger);
+            background-color: black;
         }
         
         /* All the same stuff for Firefox */
@@ -42,3 +43,42 @@ modal-audio {
           }
     }
 }
+ion-modal{
+    .modal-wrapper .ion-page .content .scroll-content {
+        padding-bottom: 30px !important;
+    }
+    art-button-round{
+        &:first-child{
+            margin-right: 20px;
+        }
+    }
+    &.jezelf{
+        .content {
+            background-image: url("../assets/imgs/lightgreen-texture.jpg");
+        }
+    }
+    &.kunstgeschiedenis{
+        .content {
+            background-image: url("../assets/imgs/lightblue-texture.jpg");
+        }
+    }
+    &.kunstgeschiedenis{
+        art-button-round button{
+            background-color: transparent;
+            background-image: url("../assets/imgs/blue-texture.jpg");
+        }
+    }
+    &.jezelf{
+        art-button-round button{
+            background-color: transparent;
+            background-image: url("../assets/imgs/green-texture.jpg");
+        }
+    }
+    &.actualiteiten{
+        art-button-round button{
+            background-color: transparent;
+            background-image: url("../assets/imgs/orange-texture.jpg");
+        }
+    }
+}
+

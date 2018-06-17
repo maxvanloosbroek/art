@@ -6,11 +6,15 @@ import { RouterModule } from '@angular/router';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { MusicSelfComponent } from './pages/music-self/music-self.component';
 import { HomeComponent } from './pages/home/home.component';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatDialogModule} from '@angular/material';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/delay';
+import { BeamerDialogComponent } from './beamer-dialog/beamer-dialog.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAh-txccyTcMD_Q2B2rVDGs-e3qPCXKW4I',
@@ -24,19 +28,22 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    MusicSelfComponent,
-    HomeComponent
+    HomeComponent,
+    BeamerDialogComponent
   ],
   imports: [
+    MatButtonModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      { path: 'music-self', component: MusicSelfComponent },
     ]),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [BeamerDialogComponent]
 })
 export class AppModule { }

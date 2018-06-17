@@ -6,12 +6,12 @@
 -->
 
 
-<ion-content padding>
+<ion-content padding [ngClass]="learningTopic">
   <h1 text-center>
-    Je koos voor de {{interest}} {{learningTopic}} tour.
+    Je koos voor de {{interest === 'rotterdam' ? 'Rotterdam' : interest}} {{learningTopic}} tour.
   </h1>
   <section class="actions" text-center>
       <art-button-rectangle [text]="'Terug'" (click)="navCtrl.pop()" class="back"></art-button-rectangle>
-      <art-button-rectangle [text]="'Start'" (click)="startTour()"></art-button-rectangle>
+      <art-button-rectangle [text]="'Start'" (click)="startTour()" [ngClass]="learningTopic + ' next'"></art-button-rectangle>
   </section>
 </ion-content>

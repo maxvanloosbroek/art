@@ -55,18 +55,16 @@ export class TourPage implements OnInit{
     if (!beamer) {
       beamer = 1;
     }
-    // console.log({...this.tour.slides[0],
-      time: new Date(),
-      beamer});
+    // console.log({...this.tour.slides[0], time: new Date(), beamer});
     this.db.collection("activeSlide").add({
       ...this.tour.slides[0],
       time: new Date(),
       beamer
     })
     .then(res => {
-      // // console.log(res);
+      // console.log(res);
     })
-    .catch(err => // console.log(err));
+    .catch(err => console.log(err));
   }
 
   getImage(image: string){
@@ -94,9 +92,9 @@ export class TourPage implements OnInit{
       beamer
     })
     .then(res => {
-      // console.log(res);
+      console.log(res);
     })
-    .catch(err => // console.log(err));
+    .catch(err => console.log(err));
   }
 
   audioPlayer(index: number, title: string, music?: boolean){

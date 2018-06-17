@@ -25,8 +25,7 @@ export class ImageZoomComponent implements OnInit{
   }
 
   close() {
-    this.viewCtrl.dismiss()
-      .catch((error) => {// console.log(error)});;
+    this.viewCtrl.dismiss();
   }
 
   zoomIn(){

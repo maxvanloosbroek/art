@@ -27,7 +27,7 @@ export class ThanksPage {
     // console.log('ionViewDidLoad ThanksPage');
     // const info$ = this.db.collection("contactInfo").valueChanges();
     // info$.subscribe((data) => {
-    //   // console.log(data);
+    //   console.log(data);
     // });
   }
 

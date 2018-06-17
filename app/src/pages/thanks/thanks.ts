@@ -25,6 +25,10 @@ export class ThanksPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ThanksPage');
+    const info$ = this.db.collection("contactInfo").valueChanges();
+    info$.subscribe((data) => {
+      console.log(data);
+    });
   }
 
   goToStart() {

@@ -21,12 +21,12 @@ export class ImageZoomComponent implements OnInit{
   }
 
   ngOnInit() {
-    console.log('viewchild',this.zoomPan);
+    // console.log('viewchild',this.zoomPan);
   }
 
   close() {
     this.viewCtrl.dismiss()
-      .catch((error) => {console.log(error)});;
+      .catch((error) => {// console.log(error)});;
   }
 
   zoomIn(){

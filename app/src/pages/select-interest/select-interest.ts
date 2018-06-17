@@ -26,7 +26,7 @@ export class SelectInterestPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SelectInterestPage');
+    // console.log('ionViewDidLoad SelectInterestPage');
   }
 
   setInterest(interest: string, enabled: boolean) {

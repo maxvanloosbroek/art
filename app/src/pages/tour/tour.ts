@@ -40,13 +40,13 @@ export class TourPage implements OnInit{
   ) {
     this.tourName = this.navParams.get('tour');
     this.tours = this.data.tours;
-    console.log(this.tours);
+    // console.log(this.tours);
   }
 
   ngOnInit(): void {
     this.interest = localStorage.getItem('interest');
     this.learningTopic = localStorage.getItem('topic');
-    console.log(this.data);
+    // console.log(this.data);
     this.tour = this.data.tours.find(tour => tour.name === this.tourName);
   }
 
@@ -55,7 +55,7 @@ export class TourPage implements OnInit{
     if (!beamer) {
       beamer = 1;
     }
-    console.log({...this.tour.slides[0],
+    // console.log({...this.tour.slides[0],
       time: new Date(),
       beamer});
     this.db.collection("activeSlide").add({
@@ -64,9 +64,9 @@ export class TourPage implements OnInit{
       beamer
     })
     .then(res => {
-      // console.log(res);
+      // // console.log(res);
     })
-    .catch(err => console.log(err));
+    .catch(err => // console.log(err));
   }
 
   getImage(image: string){
@@ -77,7 +77,7 @@ export class TourPage implements OnInit{
   onSlideChanged(event: any){
     const slide = this.tour.slides[event.getActiveIndex()];
     if(this.slides !== undefined) {
-      console.log(this.slides.getActiveIndex() >= this.slides.length() - 1)
+      // console.log(this.slides.getActiveIndex() >= this.slides.length() - 1)
       if (this.slides.getActiveIndex() >= this.slides.length() - 1) {
         this.hideNext = true;
       } else {
@@ -96,7 +96,7 @@ export class TourPage implements OnInit{
     .then(res => {
       // console.log(res);
     })
-    .catch(err => console.log(err));
+    .catch(err => // console.log(err));
   }
 
   audioPlayer(index: number, title: string, music?: boolean){
@@ -106,7 +106,7 @@ export class TourPage implements OnInit{
     } else {
       file = 'assets/audio/' + this.interest +'_' + this.learningTopic + '_song_' +  (index + 1) + '.mp3';
     }
-    console.log(file);
+    // console.log(file);
     this.modal = this.modalController.create(AudioModal, {
       file,
       title
@@ -141,7 +141,7 @@ export class TourPage implements OnInit{
 
   viewMap(img: string, enabled: boolean) {
     if (enabled) {
-      console.log('view map');
+      // console.log('view map');
       const modal = this.modalController.create(ImageZoomComponent, {img}, {
         showBackdrop: true,
         enableBackdropDismiss: false,

@@ -20,7 +20,7 @@ export class ZoomPanDirective {
         this.setZoomed(false);
 
         this.hammerIt(this.element);
-        console.log(this.element.naturalWidth);
+        // console.log(this.element.naturalWidth);
     }
 
     ngOnDestroy() {

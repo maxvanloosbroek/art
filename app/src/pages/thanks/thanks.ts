@@ -24,11 +24,11 @@ export class ThanksPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ThanksPage');
-    const info$ = this.db.collection("contactInfo").valueChanges();
-    info$.subscribe((data) => {
-      console.log(data);
-    });
+    // console.log('ionViewDidLoad ThanksPage');
+    // const info$ = this.db.collection("contactInfo").valueChanges();
+    // info$.subscribe((data) => {
+    //   // console.log(data);
+    // });
   }
 
   goToStart() {
@@ -36,14 +36,14 @@ export class ThanksPage {
   }
 
   sendContactInfo() {
-    console.log('sending info');
+    // console.log('sending info');
     const loading = this.loadingCtrl.create({
-      content:'Starting tour',
+      content:'Sending info',
     });
     loading.present();
     this.db.collection("contactInfo").add(this.contactInfo)
     .then(res => {
-      console.log(res);
+      // console.log(res);
       loading.dismiss();
       this.success = true;
       this.error = null;

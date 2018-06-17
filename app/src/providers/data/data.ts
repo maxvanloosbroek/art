@@ -397,7 +397,7 @@ export class DataProvider {
   ]
 
   constructor() {
-    console.log('Hello DataProvider Provider');
+    // console.log('Hello DataProvider Provider');
   }
 
 }

@@ -22,11 +22,11 @@ export class LearningTopicsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public data: DataProvider, private cd: ChangeDetectorRef) {
     this.topics = data.learningTopics;
-    console.log(data.learningTopics);
+    // console.log(data.learningTopics);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LearningTopicsPage');
+    // console.log('ionViewDidLoad LearningTopicsPage');
   }
 
   selectLearningTopic(topic) {

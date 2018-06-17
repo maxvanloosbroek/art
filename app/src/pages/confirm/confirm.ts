@@ -2,9 +2,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { SelectInterestPage } from '../select-interest/select-interest';
 import { HomePage } from '../home/home';
-import { AngularFirestore, DocumentChangeAction } from 'angularfire2/firestore';
-
-import { Observable } from 'rxjs/Observable';
 import { TourPage } from '../tour/tour';
 
 /**
@@ -26,16 +23,14 @@ export class ConfirmPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private db: AngularFirestore,
-    private loadingCtrl: LoadingController,
   ) {
     this.interest = localStorage.getItem('interest');
     this.learningTopic = localStorage.getItem('topic');
-    console.log(this.interest,this.learningTopic)
+    // console.log(this.interest,this.learningTopic)
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ConfirmPage');
+    // console.log('ionViewDidLoad ConfirmPage');
   }
 
   startTour() {

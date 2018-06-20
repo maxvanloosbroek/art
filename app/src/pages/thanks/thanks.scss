@@ -7,5 +7,14 @@ page-thanks {
         art-button-rectangle{
             padding: 0;
         }
+        ion-col.col{
+            padding: 0;
+            &:first-child{
+                padding-right: 7px;
+            }
+        }
+    }
+    p{
+        margin-bottom: 0;
     }
 }

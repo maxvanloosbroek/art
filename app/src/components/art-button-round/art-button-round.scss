@@ -1,6 +1,4 @@
 art-button-round {
-    width: 60px;
-    height: 60px;
     button.activated{
         transform:  translateY(2px);
     }
@@ -22,6 +20,10 @@ art-button-round {
         border-radius: 200px;
         art-svg{
             opacity: 0.8;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 40px;
             svg{
                 *{
                     fill: white;
@@ -61,6 +63,10 @@ art-button-round {
     &.small{
         width: 40px;
         height: 40px;
+        art-svg{
+            left: 0px;
+            top: 9px;
+        }
         button{
             width: 40px;
             height: 40px;

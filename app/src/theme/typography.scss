@@ -8,6 +8,9 @@ ion-app.ios, ion-app.md {
     font-family: 'Lato';
     font-weight: 300;
     line-height: 1.4;
+    .col{
+        padding: 4px;
+    }
 }
 
 h1,h2,h3,h4,h5,button{
@@ -26,6 +29,7 @@ h1,h2,h3,h4,h5,button{
 
 h1{
     font-family: 'Yanone Kaffeesatz';
+    font-size: 24px;
     &.logo{
         font-family: 'Amatic SC';
         font-size: 42px;

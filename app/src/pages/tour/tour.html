@@ -7,6 +7,11 @@
 
 
 <ion-content padding [ngClass]="learningTopic">
+  <div class="instructions" (click)="instructions = false" [class.hidden]="!instructions">
+    <div class="instruction instruction--info"><p>Klik hier voor de audiotour</p><p class="arrow">></p></div>
+    <div class="instruction instruction--muziek" *ngIf="tour.slides[0].muziek"><p>Klik hier voor de begeleidende muziek</p><p class="arrow">></p></div>
+    <div class="instruction instruction--map"><p>Klik hier voor een plattegrond van het museum</p><p class="arrow">></p></div>
+  </div>
   <section class="slides">
     <ion-slides *ngIf="tour && tour.slides" (ionSlideDidChange)="onSlideChanged($event)">
       <ion-slide *ngFor="let slide of tour.slides; let i = index">
@@ -21,9 +26,9 @@
                   <span class="button-subtext">Info</span>
                 </div>
 
-                <div padding-bottom  text-center>
+                <div *ngIf="slide.muziek" padding-bottom  text-center>
                     <art-button-round [icon]="'muziek'" (click)="audioPlayer(i, slide.muziek, true)" class="small music" *ngIf="slide.muziek" [ngClass]="learningTopic"></art-button-round>
-                    <span *ngIf="slide.muziek"  class="button-subtext">Muziek</span>
+                    <span class="button-subtext">Muziek</span>
                 </div>
 
                 <div padding-bottom  text-center>

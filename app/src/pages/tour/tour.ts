@@ -30,6 +30,7 @@ export class TourPage implements OnInit{
   modal: Modal;
   interest: string;
   learningTopic: string;
+  instructions = true;
 
   constructor(
     public navCtrl: NavController,

@@ -8,6 +8,8 @@
     flex-direction: column;
     background: black;
     color: white;
+    justify-content: center;
+    align-items: center;
 }
 .artwork{
     flex: 1 0 auto;
@@ -19,4 +21,20 @@
 }
 .fade{
     opacity: 0;
+}
+.small .artwork{
+    max-width: 45%;
+    max-height: 45%;
+}
+.medium .artwork{
+    max-width: 70%;
+    max-height: 70%;
+}
+.de-verheerlijking-van-maria .artwork{
+    max-width: 35%;
+    max-height: 35%;
+}
+.portret-van-desiderius-erasmus .artwork{
+    max-width: 35%;
+    max-height: 35%;
 }

@@ -9,6 +9,7 @@ export interface TourSlide {
     material?: string;
     trivia?: string;
     subject?: string;
+    size: 'small' | 'medium' | 'large';
 }
 
 export interface Tour {

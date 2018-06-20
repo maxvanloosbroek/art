@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { Component, ChangeDetectorRef, OnDestroy, AfterContentInit } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import {MatDialog} from '@angular/material';
 
@@ -10,10 +10,11 @@ import { BeamerDialogComponent } from '../../beamer-dialog/beamer-dialog.compone
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, OnDestroy {
-  slide$: Observable<{file: string, time: any}>;
+export class HomeComponent implements AfterContentInit, OnDestroy {
+  slide$: Observable<{file: string, time: any, title: string, size: string}>;
   image$: Observable<string>;
   fade = false;
+  cssClass$: Observable<string>;
 
   constructor(
     private db: AngularFirestore,
@@ -29,24 +30,26 @@ export class HomeComponent implements OnInit, OnDestroy {
           setTimeout(() => {
             this.fade = false;
           }, 800);
-          return slides[0] as {file: string; time: any};
+          return slides[0] as {file: string; time: any, title: string, size: string};
         })
         .delay(400);
       this.image$ = this.slide$.map( slide => `url('assets/art/${slide.file}')`);
+      this.cssClass$ = this.slide$.map( slide => (slide.title.toLowerCase()).replace(/\s/g, '-') + ' ' + slide.size);
   }
 
-  ngOnInit() {
+  ngAfterContentInit() {
     const beamer = localStorage.getItem('beamer');
     if (!beamer) {
-      const dialogRef = this.dialog.open(BeamerDialogComponent, {
-        width: '450px',
-      });
-
-      dialogRef.afterClosed().subscribe(result => {
-        if (result) {
-          localStorage.setItem('beamer', result.toString());
-        }
-      });
+      setTimeout(() => {
+        const dialogRef = this.dialog.open(BeamerDialogComponent, {
+          width: '450px',
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          if (result) {
+            localStorage.setItem('beamer', result.toString());
+          }
+        });
+      }, 200);
     }
   }
 

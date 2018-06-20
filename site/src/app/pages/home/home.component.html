@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container" [ngClass]="cssClass$ | async">
   <!-- <p>
     home works!<br>
     {{ (tourStarts$ | async)?.name }}<br>
     {{ (tourStarts$ | async)?.time | date:'fullDate' }}<br>
     {{ (slide$ | async)?.file }}<br>
   </p> -->
-  <div class="artwork" [style.background-image]="image$ | async" [class.fade]="fade">
+  <div class="artwork" [style.background-image]="image$ | async" [ngClass]="{'fade' : fade}">
   </div>
 </div>
 

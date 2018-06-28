@@ -1,6 +1,6 @@
 pg-image-zoom{
-    height: 100%;
-    width: 100%;
+    height: 150%;
+    width: 150%;
     .content{
         background: transparent;
     }
@@ -13,6 +13,10 @@ pg-image-zoom{
             margin-top: 60px;
             flex-grow: 0;
             width: auto;
+            filter: none; 
+            -webkit-filter: blur(0px); 
+            -moz-filter: blur(0px); 
+            -ms-filter: blur(0px);
         }
         art-button-round.small button {
             width: 30px;

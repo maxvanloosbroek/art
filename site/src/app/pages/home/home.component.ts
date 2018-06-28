@@ -21,20 +21,6 @@ export class HomeComponent implements AfterContentInit, OnDestroy {
     private cd: ChangeDetectorRef,
     private dialog: MatDialog
   ) {
-      this.slide$ = db.collection('activeSlide', collection => collection.orderBy('time', 'desc').limit(1))
-        .valueChanges()
-        .filter(slides => slides !== undefined)
-        .filter(slide => (slide[0] as any).beamer === 1)
-        .map(slides => {
-          this.fade = true;
-          setTimeout(() => {
-            this.fade = false;
-          }, 800);
-          return slides[0] as {file: string; time: any, title: string, size: string};
-        })
-        .delay(400);
-      this.image$ = this.slide$.map( slide => `url('assets/art/${slide.file}')`);
-      this.cssClass$ = this.slide$.map( slide => (slide.title.toLowerCase()).replace(/\s/g, '-') + ' ' + slide.size);
   }
 
   ngAfterContentInit() {
@@ -43,13 +29,43 @@ export class HomeComponent implements AfterContentInit, OnDestroy {
       setTimeout(() => {
         const dialogRef = this.dialog.open(BeamerDialogComponent, {
           width: '450px',
+          disableClose: true,
         });
         dialogRef.afterClosed().subscribe(result => {
           if (result) {
             localStorage.setItem('beamer', result.toString());
+            this.slide$ = this.db.collection('activeSlide', collection => collection.orderBy('time', 'desc').limit(1))
+            .valueChanges()
+            .filter(slides => slides !== undefined)
+            .filter(slide => (slide[0] as any).beamer === result )
+            .map(slides => {
+              this.fade = true;
+              setTimeout(() => {
+                this.fade = false;
+              }, 800);
+              return slides[0] as {file: string; time: any, title: string, size: string};
+            })
+            .delay(400);
+            this.image$ = this.slide$.map( slide => `url('assets/art/${slide.file}')`);
+            this.cssClass$ = this.slide$.map( slide => (slide.title.toLowerCase()).replace(/\s/g, '-') + ' ' + slide.size);
           }
         });
       }, 200);
+    } else {
+      this.slide$ = this.db.collection('activeSlide', collection => collection.orderBy('time', 'desc').limit(1))
+      .valueChanges()
+      .filter(slides => slides !== undefined)
+      .filter(slide => (slide[0] as any).beamer === parseInt(beamer, 10))
+      .map(slides => {
+        this.fade = true;
+        setTimeout(() => {
+          this.fade = false;
+        }, 800);
+        return slides[0] as {file: string; time: any, title: string, size: string};
+      })
+      .delay(400);
+      this.image$ = this.slide$.map( slide => `url('assets/art/${slide.file}')`);
+      this.cssClass$ = this.slide$.map( slide => (slide.title.toLowerCase()).replace(/\s/g, '-') + ' ' + slide.size);
     }
   }
 
